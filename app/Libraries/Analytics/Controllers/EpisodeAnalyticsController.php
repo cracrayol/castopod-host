@@ -28,7 +28,7 @@ class EpisodeAnalyticsController extends Controller
      */
     protected $helpers = ['analytics'];
 
-    protected Analytics $config;
+    protected $config;
 
     /**
      * Constructor.
@@ -77,6 +77,6 @@ class EpisodeAnalyticsController extends Controller
             $serviceName,
         );
 
-        return redirect()->to($this->config->getAudioFileUrl(['podcasts', ...$audioFilePath]));
+        return redirect()->to($this->config->getAudioFileUrl(['podcasts', implode('/', $audioFilePath)]));
     }
 }

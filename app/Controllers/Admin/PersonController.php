@@ -18,9 +18,9 @@ use CodeIgniter\HTTP\RedirectResponse;
 
 class PersonController extends BaseController
 {
-    protected ?Person $person;
+    protected $person;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) === 0) {
             return $this->{$method}();

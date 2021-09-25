@@ -34,9 +34,9 @@ class Location extends Entity
     private const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/';
 
     public function __construct(
-        protected string $name,
-        protected ?string $geo = null,
-        protected ?string $osm = null,
+        $name,
+        $geo = null,
+        $osm = null
     ) {
         $latitude = null;
         $longitude = null;
@@ -79,7 +79,7 @@ class Location extends Entity
     /**
      * Fetches places from Nominatim OpenStreetMap
      */
-    public function fetchOsmLocation(): static
+    public function fetchOsmLocation()
     {
         $client = Services::curlrequest();
 

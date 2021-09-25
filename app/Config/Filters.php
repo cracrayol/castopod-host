@@ -20,7 +20,7 @@ class Filters extends BaseConfig
      *
      * @var array<string, string>
      */
-    public array $aliases = [
+    public $aliases = [
         'csrf' => CSRF::class,
         'toolbar' => DebugToolbar::class,
         'honeypot' => Honeypot::class,
@@ -35,7 +35,7 @@ class Filters extends BaseConfig
      *
      * @var array<string, string[]>
      */
-    public array $globals = [
+    public $globals = [
         'before' => [
             // 'honeypot',
             // 'csrf',
@@ -53,7 +53,7 @@ class Filters extends BaseConfig
      *
      * @var array<string, string[]>
      */
-    public array $methods = [];
+    public $methods = [];
 
     /**
      * List of filter aliases that should run on any before or after URI patterns.
@@ -62,7 +62,7 @@ class Filters extends BaseConfig
      *
      * @var array<string, array<string, string[]>>
      */
-    public array $filters = [];
+    public $filters = [];
 
     public function __construct()
     {

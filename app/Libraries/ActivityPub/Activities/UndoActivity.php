@@ -17,5 +17,5 @@ use ActivityPub\Core\Activity;
 
 class UndoActivity extends Activity
 {
-    protected string $type = 'Undo';
+    protected $type = 'Undo';
 }

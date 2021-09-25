@@ -20,7 +20,7 @@ use RuntimeException;
  */
 class Status extends ActivityPubStatus
 {
-    protected ?Episode $episode = null;
+    protected $episode = null;
 
     /**
      * @var array<string, string>

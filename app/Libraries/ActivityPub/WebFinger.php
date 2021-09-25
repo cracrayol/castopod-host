@@ -19,26 +19,26 @@ class WebFinger
      */
     private const RESOURCE_PATTERN = '/^acct:(?P<username>([\w_]+))@(?P<domain>([\w\-\.]+[\w]+)(:[\d]+)?)$/x';
 
-    protected string $username;
+    protected $username;
 
-    protected string $domain;
+    protected $domain;
 
-    protected string $host;
+    protected $host;
 
-    protected string $port;
+    protected $port;
 
     /**
      * @var string[]
      */
-    protected array $aliases = [];
+    protected $aliases = [];
 
     /**
      * @var array<array<string, string>>
      */
-    protected array $links = [];
+    protected $links = [];
 
     public function __construct(
-        protected string $subject
+        protected $subject
     ) {
         // Split resource into its parts (username, domain)
         $parts = $this->splitResource($subject);
@@ -102,7 +102,7 @@ class WebFinger
      *
      * @return array<string, string>|false
      */
-    private function splitResource(string $resource): array | false
+    private function splitResource(string $resource)
     {
         if (! preg_match(self::RESOURCE_PATTERN, $resource, $matches)) {
             // Resource pattern failed

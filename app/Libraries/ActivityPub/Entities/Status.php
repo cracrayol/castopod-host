@@ -40,27 +40,27 @@ use RuntimeException;
  */
 class Status extends UuidEntity
 {
-    protected ?Actor $actor = null;
+    protected $actor = null;
 
-    protected ?Status $reply_to_status = null;
+    protected $reply_to_status = null;
 
-    protected ?Status $reblog_of_status = null;
+    protected $reblog_of_status = null;
 
-    protected ?PreviewCard $preview_card = null;
+    protected $preview_card = null;
 
-    protected bool $has_preview_card = false;
-
-    /**
-     * @var Status[]|null
-     */
-    protected ?array $replies = null;
-
-    protected bool $has_replies = false;
+    protected $has_preview_card = false;
 
     /**
      * @var Status[]|null
      */
-    protected ?array $reblogs = null;
+    protected $replies = null;
+
+    protected $has_replies = false;
+
+    /**
+     * @var Status[]|null
+     */
+    protected $reblogs = null;
 
     /**
      * @var string[]
@@ -191,7 +191,7 @@ class Status extends UuidEntity
         return $this->reblog_of_status;
     }
 
-    public function setMessage(string $message): static
+    public function setMessage(string $message)
     {
         helper('activitypub');
 

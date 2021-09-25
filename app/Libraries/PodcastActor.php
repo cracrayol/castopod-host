@@ -15,13 +15,13 @@ use App\Entities\Podcast;
 
 class PodcastActor extends ActorObject
 {
-    protected string $rssFeed;
+    protected $rssFeed;
 
-    protected string $language;
+    protected $language;
 
-    protected string $category;
+    protected $category;
 
-    protected string $episodes;
+    protected $episodes;
 
     public function __construct(Podcast $podcast)
     {

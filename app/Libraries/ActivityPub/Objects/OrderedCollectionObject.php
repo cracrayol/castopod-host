@@ -17,21 +17,21 @@ use CodeIgniter\Pager\Pager;
 
 class OrderedCollectionObject extends ObjectType
 {
-    protected string $type = 'OrderedCollection';
+    protected $type = 'OrderedCollection';
 
-    protected int $totalItems;
+    protected $totalItems;
 
-    protected ?string $first = null;
+    protected $first = null;
 
-    protected ?string $current = null;
+    protected $current = null;
 
-    protected ?string $last = null;
+    protected $last = null;
 
     /**
      * @param ObjectType[]|null $orderedItems
      */
     public function __construct(
-        protected ?array $orderedItems = null,
+        protected $orderedItems = null,
         ?Pager $pager = null
     ) {
         $this->id = current_url();

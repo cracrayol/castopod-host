@@ -17,11 +17,11 @@ use CodeIgniter\Model;
 
 class AnalyticsController extends Controller
 {
-    protected Model $analyticsModel;
+    protected $analyticsModel;
 
-    protected string $methodName = '';
+    protected $methodName = '';
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) < 2) {
             throw PageNotFoundException::forPageNotFound();

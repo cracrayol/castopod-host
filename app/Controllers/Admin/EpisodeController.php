@@ -25,11 +25,11 @@ use CodeIgniter\I18n\Time;
 
 class EpisodeController extends BaseController
 {
-    protected Podcast $podcast;
+    protected $podcast;
 
-    protected Episode $episode;
+    protected $episode;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (
             ($podcast = (new PodcastModel())->getPodcastById((int) $params[0])) === null
@@ -388,7 +388,7 @@ class EpisodeController extends BaseController
         return redirect()->back();
     }
 
-    public function publish(): string | RedirectResponse
+    public function publish()
     {
         if ($this->episode->publication_status === 'not_published') {
             helper(['form']);
@@ -481,7 +481,7 @@ class EpisodeController extends BaseController
         return redirect()->route('episode-view', [$this->podcast->id, $this->episode->id]);
     }
 
-    public function publishEdit(): string | RedirectResponse
+    public function publishEdit()
     {
         if ($this->episode->publication_status === 'scheduled') {
             helper(['form']);
@@ -616,7 +616,7 @@ class EpisodeController extends BaseController
         );
     }
 
-    public function unpublish(): string | RedirectResponse
+    public function unpublish()
     {
         if ($this->episode->publication_status === 'published') {
             helper(['form']);

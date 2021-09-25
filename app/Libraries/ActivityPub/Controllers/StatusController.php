@@ -28,16 +28,16 @@ class StatusController extends Controller
      */
     protected $helpers = ['activitypub'];
 
-    protected Status $status;
+    protected $status;
 
-    protected ActivityPub $config;
+    protected $config;
 
     public function __construct()
     {
         $this->config = config('ActivityPub');
     }
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (($status = model('StatusModel')->getStatusById($params[0])) === null) {
             throw PageNotFoundException::forPageNotFound();
@@ -213,7 +213,7 @@ class StatusController extends Controller
         return redirect()->back();
     }
 
-    public function attemptRemoteAction(string $action): RedirectResponse | ResponseInterface
+    public function attemptRemoteAction(string $action)
     {
         $rules = [
             'handle' =>

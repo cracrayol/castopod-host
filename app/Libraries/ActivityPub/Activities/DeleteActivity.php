@@ -17,5 +17,5 @@ use ActivityPub\Core\Activity;
 
 class DeleteActivity extends Activity
 {
-    protected string $type = 'Delete';
+    protected $type = 'Delete';
 }

@@ -20,11 +20,11 @@ use CodeIgniter\HTTP\RedirectResponse;
 
 class EpisodePersonController extends BaseController
 {
-    protected Podcast $podcast;
+    protected $podcast;
 
-    protected Episode $episode;
+    protected $episode;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) < 2) {
             throw PageNotFoundException::forPageNotFound();

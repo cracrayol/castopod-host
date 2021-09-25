@@ -19,7 +19,7 @@ class AuthSeeder extends Seeder
     /**
      * @var array<string, string>[]
      */
-    protected array $groups = [
+    protected $groups = [
         [
             'name' => 'superadmin',
             'description' =>
@@ -39,7 +39,7 @@ class AuthSeeder extends Seeder
      *
      * @var array<string, array<string, string|array>[]>
      */
-    protected array $permissions = [
+    protected $permissions = [
         'users' => [
             [
                 'name' => 'create',

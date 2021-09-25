@@ -18,7 +18,7 @@ use ActivityPub\Entities\Status;
 
 class AnnounceActivity extends Activity
 {
-    protected string $type = 'Announce';
+    protected $type = 'Announce';
 
     public function __construct(Status $reblogStatus)
     {

@@ -16,7 +16,7 @@ use Config\Services;
 
 class HomeController extends BaseController
 {
-    public function index(): RedirectResponse | string
+    public function index()
     {
         $db = db_connect();
         if ($db->getDatabase() === '' || ! $db->tableExists('podcasts')) {

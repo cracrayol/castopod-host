@@ -28,16 +28,16 @@ class StatusController extends ActivityPubStatusController
 {
     use AnalyticsTrait;
 
-    protected Podcast $podcast;
+    protected $podcast;
 
-    protected Actor $actor;
+    protected $actor;
 
     /**
      * @var string[]
      */
     protected $helpers = ['auth', 'activitypub', 'svg', 'components', 'misc'];
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (
             ($podcast = (new PodcastModel())->getPodcastByName($params[0],)) === null
@@ -210,14 +210,14 @@ class StatusController extends ActivityPubStatusController
         }
 
         $action = $this->request->getPost('action');
-        return match ($action) {
-            'favourite' => $this->attemptFavourite(),
-            'reblog' => $this->attemptReblog(),
-            'reply' => $this->attemptReply(),
-            default => redirect()
+        switch ($action) {
+            case 'favourite': return $this->attemptFavourite();
+            case 'reblog': return $this->attemptReblog();
+            case 'reply': return $this->attemptReply();
+            default: return redirect()
                 ->back()
                 ->withInput()
-                ->with('errors', 'error'),
+                ->with('errors', 'error');
         };
     }
 

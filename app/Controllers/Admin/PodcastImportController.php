@@ -30,9 +30,9 @@ use Podlibre\PodcastNamespace\ReversedTaxonomy;
 
 class PodcastImportController extends BaseController
 {
-    protected ?Podcast $podcast;
+    protected $podcast;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) === 0) {
             return $this->{$method}();
@@ -318,11 +318,11 @@ class PodcastImportController extends BaseController
                 $slug = $slug . '-' . $slugNumber;
             }
             $slugs[] = $slug;
-            $itemDescriptionHtml = match ($this->request->getPost('description_field')) {
-                'content' => (string) $nsContent->encoded,
-                'summary' => (string) $nsItunes->summary,
-                'subtitle_summary' => $nsItunes->subtitle . '<br/>' . $nsItunes->summary,
-                default => (string) $item->description,
+            switch ($this->request->getPost('description_field')) {
+                case 'content': $itemDescriptionHtml = (string) $nsContent->encoded; break;
+                case 'summary': $itemDescriptionHtml = (string) $nsItunes->summary; break;
+                case 'subtitle_summary': $itemDescriptionHtml = $nsItunes->subtitle . '<br/>' . $nsItunes->summary; break;
+                default: $itemDescriptionHtml = (string) $item->description;
             };
 
             if (

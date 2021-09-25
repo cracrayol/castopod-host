@@ -84,7 +84,7 @@ class BlockedDomainModel extends Model
         return $found;
     }
 
-    public function blockDomain(string $name): int | bool
+    public function blockDomain(string $name)
     {
         $hashedDomain = md5($name);
         $prefix = config('ActivityPub')
@@ -116,7 +116,7 @@ class BlockedDomainModel extends Model
         return $result;
     }
 
-    public function unblockDomain(string $name): BaseResult | bool
+    public function unblockDomain(string $name)
     {
         $hashedDomain = md5($name);
         $prefix = config('ActivityPub')

@@ -21,7 +21,7 @@ class Breadcrumb
      *
      * @var array<array<string, string>>
      */
-    protected array $links = [];
+    protected $links = [];
 
     /**
      * Initializes the Breadcrumb object using the segments from current_url by populating the $links property with text

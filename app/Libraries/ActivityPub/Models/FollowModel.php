@@ -97,7 +97,7 @@ class FollowModel extends Model
                 ->clearCache($targetActor);
 
             $this->db->transComplete();
-        } catch (Exception) {
+        } catch (Exception $e) {
             // follow already exists, do nothing
         }
     }

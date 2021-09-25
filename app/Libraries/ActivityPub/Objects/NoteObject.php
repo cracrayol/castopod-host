@@ -19,13 +19,13 @@ use ActivityPub\Entities\Status;
 
 class NoteObject extends ObjectType
 {
-    protected string $type = 'Note';
+    protected $type = 'Note';
 
-    protected string $attributedTo;
+    protected $attributedTo;
 
-    protected string $inReplyTo;
+    protected $inReplyTo;
 
-    protected string $replies;
+    protected $replies;
 
     public function __construct(Status $status)
     {

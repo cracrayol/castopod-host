@@ -19,46 +19,46 @@ class ContentSecurityPolicy extends BaseConfig
     /**
      * Default CSP report context
      */
-    public bool $reportOnly = false;
+    public $reportOnly = false;
 
     /**
      * Specifies a URL where a browser will send reports when a content security policy is violated.
      */
-    public ?string $reportURI = null;
+    public $reportURI = null;
 
     /**
      * Instructs user agents to rewrite URL schemes, changing HTTP to HTTPS. This directive is for websites with large
      * numbers of old URLs that need to be rewritten.
      */
-    public bool $upgradeInsecureRequests = false;
+    public $upgradeInsecureRequests = false;
 
     /**
      * Will default to self if not overridden
      *
      * @var string|string[]|null
      */
-    public string | array | null $defaultSrc = null;
+    public $defaultSrc = null;
 
     /**
      * Lists allowed scripts' URLs.
      *
      * @var string|string[]
      */
-    public string | array $scriptSrc = 'self';
+    public $scriptSrc = 'self';
 
     /**
      * Lists allowed stylesheets' URLs.
      *
      * @var string|string[]
      */
-    public string | array $styleSrc = 'self';
+    public $styleSrc = 'self';
 
     /**
      * Defines the origins from which images can be loaded.
      *
      * @var string|string[]
      */
-    public string | array $imageSrc = 'self';
+    public $imageSrc = 'self';
 
     /**
      * Restricts the URLs that can appear in a page's `<base>` element.
@@ -67,35 +67,35 @@ class ContentSecurityPolicy extends BaseConfig
      *
      * @var string|string[]|null
      */
-    public string | array | null $baseURI = null;
+    public $baseURI = null;
 
     /**
      * Lists the URLs for workers and embedded frame contents
      *
      * @var string|string[]
      */
-    public string | array $childSrc = 'self';
+    public $childSrc = 'self';
 
     /**
      * Limits the origins that you can connect to (via XHR, WebSockets, and EventSource).
      *
      * @var string|string[]
      */
-    public string | array $connectSrc = 'self';
+    public $connectSrc = 'self';
 
     /**
      * Specifies the origins that can serve web fonts.
      *
      * @var string|string[]
      */
-    public string | array $fontSrc;
+    public $fontSrc;
 
     /**
      * Lists valid endpoints for submission from `<form>` tags.
      *
      * @var string|string[]
      */
-    public string | array $formAction = 'self';
+    public $formAction = 'self';
 
     /**
      * Specifies the sources that can embed the current page. This directive applies to `<frame>`, `<iframe>`,
@@ -104,45 +104,45 @@ class ContentSecurityPolicy extends BaseConfig
      *
      * @var string|string[]|null
      */
-    public string | array | null $frameAncestors = null;
+    public $frameAncestors = null;
 
     /**
      * The frame-src directive restricts the URLs which may be loaded into nested browsing contexts.
      *
      * @var string[]|string|null
      */
-    public string | array | null $frameSrc = null;
+    public $frameSrc = null;
 
     /**
      * Restricts the origins allowed to deliver video and audio.
      *
      * @var string|string[]|null
      */
-    public string | array | null $mediaSrc = null;
+    public $mediaSrc = null;
 
     /**
      * Allows control over Flash and other plugins.
      *
      * @var string|string[]
      */
-    public string | array $objectSrc = 'self';
+    public $objectSrc = 'self';
 
     /**
      * @var string|string[]|null
      */
-    public string | array | null $manifestSrc = null;
+    public $manifestSrc = null;
 
     /**
      * Limits the kinds of plugins a page may invoke.
      *
      * @var string|string[]|null
      */
-    public string | array | null $pluginTypes = null;
+    public $pluginTypes = null;
 
     /**
      * List of actions allowed.
      *
      * @var string|string[]|null
      */
-    public string | array | null $sandbox = null;
+    public $sandbox = null;
 }

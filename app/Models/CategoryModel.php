@@ -85,7 +85,7 @@ class CategoryModel extends Model
      *
      * @return int|false Number of rows inserted or FALSE on failure
      */
-    public function setPodcastCategories(int $podcastId, array $categoriesIds = []): int | false
+    public function setPodcastCategories(int $podcastId, array $categoriesIds = [])
     {
         cache()->delete("podcast#{$podcastId}_categories");
 

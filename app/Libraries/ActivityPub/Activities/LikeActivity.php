@@ -17,5 +17,5 @@ use ActivityPub\Core\Activity;
 
 class LikeActivity extends Activity
 {
-    protected string $type = 'Like';
+    protected $type = 'Like';
 }

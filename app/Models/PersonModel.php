@@ -192,7 +192,7 @@ class PersonModel extends Model
         return $options;
     }
 
-    public function addPerson(string $fullName, ?string $informationUrl, string $image): int | bool
+    public function addPerson(string $fullName, ?string $informationUrl, string $image)
     {
         $person = new Person([
             'full_name' => $fullName,
@@ -258,7 +258,7 @@ class PersonModel extends Model
         int $personId,
         string $groupSlug,
         string $roleSlug
-    ): bool | Query {
+    ) {
         return $this->db->table('episodes_persons')
             ->insert([
                 'podcast_id' => $podcastId,
@@ -274,7 +274,7 @@ class PersonModel extends Model
         int $personId,
         string $groupSlug,
         string $roleSlug
-    ): bool | Query {
+    ) {
         return $this->db->table('podcasts_persons')
             ->insert([
                 'podcast_id' => $podcastId,
@@ -292,7 +292,7 @@ class PersonModel extends Model
      *
      * @return bool|int Number of rows inserted or FALSE on failure
      */
-    public function addPodcastPersons(int $podcastId, array $personIds = [], array $roles = []): int | bool
+    public function addPodcastPersons(int $podcastId, array $personIds = [], array $roles = [])
     {
         if ($personIds === []) {
             return 0;
@@ -334,7 +334,7 @@ class PersonModel extends Model
      *
      * @return string|bool Number of rows inserted or FALSE on failure
      */
-    public function removePersonFromPodcast(int $podcastId, int $personId): string | bool
+    public function removePersonFromPodcast(int $podcastId, int $personId)
     {
         cache()->deleteMatching("podcast#{$podcastId}_person#{$personId}*");
         cache()
@@ -363,7 +363,7 @@ class PersonModel extends Model
         int $episodeId,
         array $personIds,
         array $groupsRoles
-    ): bool | int {
+    ) {
         if ($personIds !== []) {
             cache()
                 ->delete("podcast#{$podcastId}_episode#{$episodeId}_persons");
@@ -399,7 +399,7 @@ class PersonModel extends Model
         return 0;
     }
 
-    public function removePersonFromEpisode(int $podcastId, int $episodeId, int $personId): bool | string
+    public function removePersonFromEpisode(int $podcastId, int $episodeId, int $personId)
     {
         cache()->deleteMatching("podcast#{$podcastId}_episode#{$episodeId}_person#{$personId}*");
         cache()

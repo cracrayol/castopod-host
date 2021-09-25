@@ -64,7 +64,7 @@ class ActivityPubFilter implements FilterInterface
             try {
                 // securityCheck: check activity signature before handling it
                 (new HttpSignature())->verify();
-            } catch (Exception) {
+            } catch (Exception $e) {
                 // Invalid HttpSignature (401 = unauthorized)
                 // TODO: show error message?
                 return service('response')->setStatusCode(401);

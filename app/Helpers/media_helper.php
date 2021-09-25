@@ -93,7 +93,7 @@ if (! function_exists('media_path')) {
      *
      * @param  string|string[] $uri URI string or array of URI segments
      */
-    function media_path(string | array $uri = ''): string
+    function media_path( $uri = ''): string
     {
         // convert segment array to string
         if (is_array($uri)) {
@@ -111,7 +111,7 @@ if (! function_exists('media_base_url')) {
      *
      * @param  string|string[] $uri URI string or array of URI segments
      */
-    function media_base_url(string | array $uri = ''): string
+    function media_base_url( $uri = ''): string
     {
         // convert segment array to string
         if (is_array($uri)) {

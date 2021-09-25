@@ -115,7 +115,7 @@ class FakePodcastsAnalyticsSeeder extends Seeder
                                 : $city->subdivisions[0]->isoCode;
                             $latitude = round((float) $city->location->latitude, 3);
                             $longitude = round((float) $city->location->longitude, 3);
-                        } catch (AddressNotFoundException) {
+                        } catch (AddressNotFoundException $e) {
                             //Bad luck, bad IP, nothing to do.
                         }
 

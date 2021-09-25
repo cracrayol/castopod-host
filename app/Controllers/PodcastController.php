@@ -27,9 +27,9 @@ class PodcastController extends BaseController
 {
     use AnalyticsTrait;
 
-    protected Podcast $podcast;
+    protected $podcast;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) === 0) {
             throw PageNotFoundException::forPageNotFound();

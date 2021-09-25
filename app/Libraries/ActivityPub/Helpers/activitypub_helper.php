@@ -42,7 +42,7 @@ if (! function_exists('split_handle')) {
      *
      * @return array<string, string>|false
      */
-    function split_handle(string $handle): array | false
+    function split_handle(string $handle)
     {
         if (
             ! preg_match('~^@?(?P<username>[\w\.\-]+)@(?P<domain>[\w\.\-]+)(?P<port>:[\d]+)?$~', $handle, $matches)
@@ -89,7 +89,7 @@ if (! function_exists('accept_follow')) {
             $acceptRequest = new ActivityRequest($targetActor->inbox_url, $acceptActivity->toJSON());
             $acceptRequest->sign($actor->public_key_id, $actor->private_key);
             $acceptRequest->post();
-        } catch (Exception) {
+        } catch (Exception $e) {
             $db->transRollback();
         }
 

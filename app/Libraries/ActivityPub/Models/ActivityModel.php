@@ -92,7 +92,7 @@ class ActivityModel extends UuidModel
         string $payload,
         DateTimeInterface $scheduledAt = null,
         ?string $taskStatus = null
-    ): BaseResult | int | string | false {
+    ) {
         return $this->insert(
             [
                 'actor_id' => $actorId,

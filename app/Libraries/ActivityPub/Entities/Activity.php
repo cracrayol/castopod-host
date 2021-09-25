@@ -29,11 +29,11 @@ use RuntimeException;
  */
 class Activity extends UuidEntity
 {
-    protected ?Actor $actor = null;
+    protected $actor = null;
 
-    protected ?Actor $target_actor = null;
+    protected $target_actor = null;
 
-    protected ?Status $status = null;
+    protected $status = null;
 
     /**
      * @var string[]

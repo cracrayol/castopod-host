@@ -153,7 +153,7 @@ class StatusModel extends UuidModel
      * Returns the timestamp difference in seconds between the next status to publish and the current timestamp. Returns
      * false if there's no status to publish
      */
-    public function getSecondsToNextUnpublishedStatuses(int $actorId): int | false
+    public function getSecondsToNextUnpublishedStatuses(int $actorId)
     {
         $result = $this->select('TIMESTAMPDIFF(SECOND, NOW(), `published_at`) as timestamp_diff')
             ->where([
@@ -225,7 +225,7 @@ class StatusModel extends UuidModel
         return $found;
     }
 
-    public function addPreviewCard(string $statusId, int $previewCardId): Query | bool
+    public function addPreviewCard(string $statusId, int $previewCardId)
     {
         return $this->db->table('activitypub_statuses_preview_cards')
             ->insert([
@@ -244,7 +244,7 @@ class StatusModel extends UuidModel
         Status $status,
         bool $createPreviewCard = true,
         bool $registerActivity = true
-    ): string | false {
+    ) {
         helper('activitypub');
 
         $this->db->transStart();
@@ -353,7 +353,7 @@ class StatusModel extends UuidModel
     /**
      * Removes a status from the database and decrements meta data
      */
-    public function removeStatus(Status $status, bool $registerActivity = true): BaseResult | bool
+    public function removeStatus(Status $status, bool $registerActivity = true)
     {
         $this->db->transStart();
 
@@ -435,7 +435,7 @@ class StatusModel extends UuidModel
         Status $reply,
         bool $createPreviewCard = true,
         bool $registerActivity = true
-    ): string | false {
+    ) {
         if (! $reply->in_reply_to_id) {
             throw new Exception('Passed status is not a reply!');
         }
@@ -457,7 +457,7 @@ class StatusModel extends UuidModel
         return $statusId;
     }
 
-    public function reblog(Actor $actor, Status $status, bool $registerActivity = true): string | false
+    public function reblog(Actor $actor, Status $status, bool $registerActivity = true)
     {
         $this->db->transStart();
 
@@ -509,7 +509,7 @@ class StatusModel extends UuidModel
         return $reblogId;
     }
 
-    public function undoReblog(Status $reblogStatus, bool $registerActivity = true): BaseResult | bool
+    public function undoReblog(Status $reblogStatus, bool $registerActivity = true)
     {
         $this->db->transStart();
 

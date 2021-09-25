@@ -19,9 +19,9 @@ use Config\Services;
 
 class UserController extends BaseController
 {
-    protected ?User $user;
+    protected $user;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) === 0) {
             return $this->{$method}();

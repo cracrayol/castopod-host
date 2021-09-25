@@ -31,7 +31,7 @@ class User extends MythAuthUser
     /**
      * @var Podcast[]|null
      */
-    protected ?array $podcasts = null;
+    protected $podcasts = null;
 
     /**
      * Array of field names and the type of value to cast them as when they are accessed.

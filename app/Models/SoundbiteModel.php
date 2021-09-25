@@ -71,7 +71,7 @@ class SoundbiteModel extends Model
      */
     protected $beforeDelete = ['clearCache'];
 
-    public function deleteSoundbite(int $podcastId, int $episodeId, int $soundbiteId): BaseResult | bool
+    public function deleteSoundbite(int $podcastId, int $episodeId, int $soundbiteId)
     {
         return $this->delete([
             'podcast_id' => $podcastId,

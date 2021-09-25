@@ -31,15 +31,15 @@ use RuntimeException;
  */
 class Credit extends Entity
 {
-    protected ?Person $person = null;
+    protected $person = null;
 
-    protected ?Podcast $podcast = null;
+    protected $podcast = null;
 
-    protected ?Episode $episode = null;
+    protected $episode = null;
 
-    protected string $group_label;
+    protected $group_label;
 
-    protected string $role_label;
+    protected $role_label;
 
     /**
      * @var array<string, string>

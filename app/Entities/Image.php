@@ -37,15 +37,15 @@ use RuntimeException;
  */
 class Image extends Entity
 {
-    protected Images $config;
+    protected $config;
 
-    protected ?File $file = null;
+    protected $file = null;
 
-    protected string $dirname;
+    protected $dirname;
 
-    protected string $filename;
+    protected $filename;
 
-    protected string $extension;
+    protected $extension;
 
     public function __construct(?File $file, string $path = '', string $mimetype = '')
     {

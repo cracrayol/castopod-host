@@ -24,11 +24,11 @@ class EpisodeController extends BaseController
 {
     use AnalyticsTrait;
 
-    protected Podcast $podcast;
+    protected $podcast;
 
-    protected Episode $episode;
+    protected $episode;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) < 2) {
             throw PageNotFoundException::forPageNotFound();

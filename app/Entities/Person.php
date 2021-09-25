@@ -28,16 +28,16 @@ use RuntimeException;
  */
 class Person extends Entity
 {
-    protected Image $image;
+    protected $image;
 
-    protected ?int $podcast_id = null;
+    protected $podcast_id = null;
 
-    protected ?int $episode_id = null;
+    protected $episode_id = null;
 
     /**
      * @var object[]|null
      */
-    protected ?array $roles = null;
+    protected $roles = null;
 
     /**
      * @var array<string, string>
@@ -58,7 +58,7 @@ class Person extends Entity
     /**
      * Saves a picture in `public/media/persons/`
      */
-    public function setImage(Image $image): static
+    public function setImage(Image $image)
     {
         helper('media');
 

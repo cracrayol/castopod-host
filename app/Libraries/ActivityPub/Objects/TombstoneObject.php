@@ -14,5 +14,5 @@ use ActivityPub\Core\ObjectType;
 
 class TombstoneObject extends ObjectType
 {
-    protected string $type = 'Tombstone';
+    protected $type = 'Tombstone';
 }

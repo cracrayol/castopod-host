@@ -15,26 +15,26 @@ use App\Entities\Episode;
 
 class PodcastEpisode extends ObjectType
 {
-    protected string $type = 'PodcastEpisode';
+    protected $type = 'PodcastEpisode';
 
-    protected string $attributedTo;
+    protected $attributedTo;
 
-    protected string $comments;
+    protected $comments;
 
     /**
      * @var array<mixed>
      */
-    protected array $description = [];
+    protected $description = [];
 
     /**
      * @var array<string, string>
      */
-    protected array $image = [];
+    protected $image = [];
 
     /**
      * @var array<mixed>
      */
-    protected array $audio = [];
+    protected $audio = [];
 
     public function __construct(Episode $episode)
     {

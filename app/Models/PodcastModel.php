@@ -187,7 +187,7 @@ class PodcastModel extends Model
         return $found;
     }
 
-    public function addPodcastContributor(int $userId, int $podcastId, int $groupId): Query | bool
+    public function addPodcastContributor(int $userId, int $podcastId, int $groupId)
     {
         cache()->delete("podcast#{$podcastId}_contributors");
 
@@ -216,7 +216,7 @@ class PodcastModel extends Model
             ]);
     }
 
-    public function removePodcastContributor(int $userId, int $podcastId): string | bool
+    public function removePodcastContributor(int $userId, int $podcastId)
     {
         cache()->delete("podcast#{$podcastId}_contributors");
 
@@ -229,7 +229,7 @@ class PodcastModel extends Model
             ->delete();
     }
 
-    public function getContributorGroupId(int $userId, int | string $podcastId): int | false
+    public function getContributorGroupId(int $userId, $podcastId)
     {
         if (! is_numeric($podcastId)) {
             // identifier is the podcast name, request must be a join

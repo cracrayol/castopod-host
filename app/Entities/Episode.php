@@ -82,55 +82,55 @@ use RuntimeException;
  */
 class Episode extends Entity
 {
-    protected Podcast $podcast;
+    protected $podcast;
 
-    protected string $link;
+    protected $link;
 
-    protected File $audio_file;
+    protected $audio_file;
 
-    protected string $audio_file_url;
+    protected $audio_file_url;
 
-    protected string $audio_file_analytics_url;
+    protected $audio_file_analytics_url;
 
-    protected string $audio_file_web_url;
+    protected $audio_file_web_url;
 
-    protected string $audio_file_opengraph_url;
+    protected $audio_file_opengraph_url;
 
-    protected string $embeddable_player_url;
+    protected $embeddable_player_url;
 
-    protected Image $image;
+    protected $image;
 
-    protected ?string $description = null;
+    protected $description = null;
 
-    protected File $transcript_file;
+    protected $transcript_file;
 
-    protected File $chapters_file;
+    protected $chapters_file;
 
     /**
      * @var Person[]|null
      */
-    protected ?array $persons = null;
+    protected $persons = null;
 
     /**
      * @var Soundbite[]|null
      */
-    protected ?array $soundbites = null;
+    protected $soundbites = null;
 
     /**
      * @var Status[]|null
      */
-    protected ?array $statuses = null;
+    protected $statuses = null;
 
     /**
      * @var Status[]|null
      */
-    protected ?array $comments = null;
+    protected $comments = null;
 
-    protected ?Location $location = null;
+    protected $location = null;
 
-    protected string $custom_rss_string;
+    protected $custom_rss_string;
 
-    protected ?string $publication_status = null;
+    protected $publication_status = null;
 
     /**
      * @var string[]
@@ -178,7 +178,7 @@ class Episode extends Entity
     /**
      * Saves an episode image
      */
-    public function setImage(?Image $image = null): static
+    public function setImage(?Image $image = null)
     {
         if ($image === null) {
             return $this;
@@ -206,7 +206,7 @@ class Episode extends Entity
     /**
      * Saves an audio file
      */
-    public function setAudioFile(UploadedFile | File $audioFile): static
+    public function setAudioFile( $audioFile)
     {
         helper(['media', 'id3']);
 
@@ -230,7 +230,7 @@ class Episode extends Entity
     /**
      * Saves an episode transcript file
      */
-    public function setTranscriptFile(UploadedFile | File $transcriptFile): static
+    public function setTranscriptFile( $transcriptFile)
     {
         helper('media');
 
@@ -247,7 +247,7 @@ class Episode extends Entity
     /**
      * Saves an episode chapters file
      */
-    public function setChaptersFile(UploadedFile | File $chaptersFile): static
+    public function setChaptersFile( $chaptersFile)
     {
         helper('media');
 
@@ -438,7 +438,7 @@ class Episode extends Entity
         );
     }
 
-    public function setGuid(?string $guid = null): static
+    public function setGuid(?string $guid = null)
     {
         $this->attributes['guid'] = $guid === null ? $this->getLink() : $guid;
 
@@ -450,7 +450,7 @@ class Episode extends Entity
         return (new PodcastModel())->getPodcastById($this->podcast_id);
     }
 
-    public function setDescriptionMarkdown(string $descriptionMarkdown): static
+    public function setDescriptionMarkdown(string $descriptionMarkdown)
     {
         $converter = new CommonMarkConverter([
             'html_input' => 'strip',
@@ -520,7 +520,7 @@ class Episode extends Entity
     /**
      * Saves the location name and fetches OpenStreetMap info
      */
-    public function setLocation(?Location $location = null): static
+    public function setLocation(?Location $location = null)
     {
         if ($location === null) {
             $this->attributes['location_name'] = null;
@@ -583,7 +583,7 @@ class Episode extends Entity
     /**
      * Saves custom rss tag into json
      */
-    public function setCustomRssString(?string $customRssString = null): static
+    public function setCustomRssString(?string $customRssString = null)
     {
         if ($customRssString === null) {
             return $this;

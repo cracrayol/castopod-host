@@ -123,7 +123,7 @@ if (! function_exists('set_user_session_location')) {
                     'longitude' => round($city->location->longitude, 3),
                 ];
                 // If things go wrong the show must go on and the user must be able to download the file
-            } catch (Exception) {
+            } catch (Exception $e) {
             }
             $session->set('location', $location);
         }
@@ -146,7 +146,7 @@ if (! function_exists('set_user_session_player')) {
             try {
                 $playerFound = UserAgents::find($userAgent);
                 // If things go wrong the show must go on and the user must be able to download the file
-            } catch (Exception) {
+            } catch (Exception $e) {
             }
             if ($playerFound) {
                 $session->set('player', $playerFound);
@@ -163,7 +163,7 @@ if (! function_exists('set_user_session_player')) {
                     $procedureNameAnalyticsUnknownUseragents = $db->prefixTable('analytics_unknown_useragents');
                     $db->query("CALL {$procedureNameAnalyticsUnknownUseragents}(?)", [$userAgent]);
                     // If things go wrong the show must go on and the user must be able to download the file
-                } catch (Exception) {
+                } catch (Exception $e) {
                 }
             }
         }
@@ -186,7 +186,7 @@ if (! function_exists('set_user_session_browser')) {
             try {
                 $whichbrowser = new Parser(getallheaders());
                 $browserName = $whichbrowser->browser->name;
-            } catch (Exception) {
+            } catch (Exception $e) {
                 $browserName = '- Could not get browser name -';
             }
             if ($browserName === '') {

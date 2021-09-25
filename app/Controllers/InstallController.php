@@ -56,7 +56,7 @@ class InstallController extends Controller
             try {
                 $envFile = fopen(ROOTPATH . '.env', 'w');
                 fclose($envFile);
-            } catch (Throwable) {
+            } catch (Throwable $e) {
                 // Could not create the .env file, redirect to a view with instructions on how to add it manually
                 return view('install/manual_config');
             }
@@ -70,7 +70,7 @@ class InstallController extends Controller
         if (is_really_writable(ROOTPATH . '.env')) {
             try {
                 $dotenv->required(['app.baseURL', 'app.adminGateway', 'app.authGateway']);
-            } catch (ValidationException) {
+            } catch (ValidationException $e) {
                 // form to input instance configuration
                 return $this->instanceConfig();
             }
@@ -83,13 +83,13 @@ class InstallController extends Controller
                     'database.default.password',
                     'database.default.DBPrefix',
                 ]);
-            } catch (ValidationException) {
+            } catch (ValidationException $e) {
                 return $this->databaseConfig();
             }
 
             try {
                 $dotenv->required('cache.handler');
-            } catch (ValidationException) {
+            } catch (ValidationException $e) {
                 return $this->cacheConfig();
             }
         } else {
@@ -105,7 +105,7 @@ class InstallController extends Controller
                     'database.default.DBPrefix',
                     'cache.handler',
                 ]);
-            } catch (ValidationException) {
+            } catch (ValidationException $e) {
                 return view('install/manual_config');
             }
         }
@@ -121,7 +121,7 @@ class InstallController extends Controller
                 // if so, show a 404 page
                 throw PageNotFoundException::forPageNotFound();
             }
-        } catch (DatabaseException) {
+        } catch (DatabaseException $e) {
             // Could not connect to the database
             // show database config view to fix value
             session()

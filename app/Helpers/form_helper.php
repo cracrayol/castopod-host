@@ -185,10 +185,10 @@ if (! function_exists('form_dropdown')) {
      * @param array<string, mixed>|string $extra
      */
     function form_dropdown(
-        string | array $data = '',
+         $data = '',
         array $options = [],
-        string | array $selected = [],
-        string | array $extra = ''
+         $selected = [],
+         $extra = ''
     ): string {
         $defaults = [];
         if (is_array($data)) {

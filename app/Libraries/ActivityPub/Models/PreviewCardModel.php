@@ -91,7 +91,7 @@ class PreviewCardModel extends Model
         return $found;
     }
 
-    public function deletePreviewCard(int $id, string $url): BaseResult | bool
+    public function deletePreviewCard(int $id, string $url)
     {
         $hashedPreviewCardUrl = md5($url);
         cache()

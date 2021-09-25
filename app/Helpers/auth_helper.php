@@ -68,7 +68,7 @@ if (! function_exists('interact_as_actor')) {
     /**
      * Get the actor the user is currently interacting as
      */
-    function interact_as_actor(): Actor | false
+    function interact_as_actor()
     {
         $authenticate = Services::authentication();
         $authenticate->check();

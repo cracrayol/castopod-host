@@ -21,11 +21,11 @@ use Exception;
 
 class ContributorController extends BaseController
 {
-    protected Podcast $podcast;
+    protected $podcast;
 
-    protected ?User $user;
+    protected $user;
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) === 0) {
             throw PageNotFoundException::forPageNotFound();
@@ -117,7 +117,7 @@ class ContributorController extends BaseController
                 $this->podcast->id,
                 (int) $this->request->getPost('role'),
             );
-        } catch (Exception) {
+        } catch (Exception $e) {
             return redirect()
                 ->back()
                 ->withInput()

@@ -16,13 +16,13 @@ use CodeIgniter\Pager\Pager;
 
 class OrderedCollectionPage extends OrderedCollectionObject
 {
-    protected string $type = 'OrderedCollectionPage';
+    protected $type = 'OrderedCollectionPage';
 
-    protected string $partOf;
+    protected $partOf;
 
-    protected ?string $prev = null;
+    protected $prev = null;
 
-    protected ?string $next = null;
+    protected $next = null;
 
     public function __construct(Pager $pager, ?array $orderedItems = null)
     {

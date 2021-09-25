@@ -17,5 +17,5 @@ use ActivityPub\Core\Activity;
 
 class AcceptActivity extends Activity
 {
-    protected string $type = 'Accept';
+    protected $type = 'Accept';
 }

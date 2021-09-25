@@ -20,16 +20,16 @@ use phpseclib\Crypt\RSA;
 
 class ActivityRequest
 {
-    protected CURLRequest $request;
+    protected $request;
 
-    protected URI $uri;
+    protected $uri;
 
-    protected ?Activity $activity = null;
+    protected $activity = null;
 
     /**
      * @var array<string, string[]>
      */
-    protected array $options = [
+    protected $options = [
         'headers' => [
             'Content-Type' => 'application/activity+json',
             'Accept' => 'application/activity+json',

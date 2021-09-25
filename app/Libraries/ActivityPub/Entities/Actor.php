@@ -39,14 +39,14 @@ use RuntimeException;
  */
 class Actor extends Entity
 {
-    protected string $public_key_id;
+    protected $public_key_id;
 
     /**
      * @var Actor[]
      */
-    protected ?array $followers = null;
+    protected $followers = null;
 
-    protected bool $is_local = false;
+    protected $is_local = false;
 
     /**
      * @var array<string, string>

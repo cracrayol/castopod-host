@@ -79,59 +79,59 @@ use RuntimeException;
  */
 class Podcast extends Entity
 {
-    protected string $link;
+    protected $link;
 
-    protected ?Actor $actor = null;
+    protected $actor = null;
 
-    protected Image $image;
+    protected $image;
 
-    protected ?string $description = null;
+    protected $description = null;
 
-    protected ?Category $category = null;
+    protected $category = null;
 
     /**
      * @var Category[]|null
      */
-    protected ?array $other_categories = null;
+    protected $other_categories = null;
 
     /**
      * @var string[]|null
      */
-    protected ?array $other_categories_ids = null;
+    protected $other_categories_ids = null;
 
     /**
      * @var Episode[]|null
      */
-    protected ?array $episodes = null;
+    protected $episodes = null;
 
     /**
      * @var Person[]|null
      */
-    protected ?array $persons = null;
+    protected $persons = null;
 
     /**
      * @var User[]|null
      */
-    protected ?array $contributors = null;
+    protected $contributors = null;
 
     /**
      * @var Platform[]|null
      */
-    protected ?array $podcasting_platforms = null;
+    protected $podcasting_platforms = null;
 
     /**
      * @var Platform[]|null
      */
-    protected ?array $social_platforms = null;
+    protected $social_platforms = null;
 
     /**
      * @var Platform[]|null
      */
-    protected ?array $funding_platforms = null;
+    protected $funding_platforms = null;
 
-    protected ?Location $location = null;
+    protected $location = null;
 
-    protected string $custom_rss_string;
+    protected $custom_rss_string;
 
     /**
      * @var array<string, string>
@@ -190,7 +190,7 @@ class Podcast extends Entity
     /**
      * Saves a cover image to the corresponding podcast folder in `public/media/podcast_name/`
      */
-    public function setImage(Image $image): static
+    public function setImage(Image $image)
     {
         // Save image
         $image->saveImage('podcasts/' . $this->attributes['name'], 'cover');
@@ -286,7 +286,7 @@ class Podcast extends Entity
         return $this->contributors;
     }
 
-    public function setDescriptionMarkdown(string $descriptionMarkdown): static
+    public function setDescriptionMarkdown(string $descriptionMarkdown)
     {
         $converter = new CommonMarkConverter([
             'html_input' => 'strip',
@@ -299,7 +299,7 @@ class Podcast extends Entity
         return $this;
     }
 
-    public function setEpisodeDescriptionFooterMarkdown(?string $episodeDescriptionFooterMarkdown = null): static
+    public function setEpisodeDescriptionFooterMarkdown(?string $episodeDescriptionFooterMarkdown = null)
     {
         if ($episodeDescriptionFooterMarkdown === null || $episodeDescriptionFooterMarkdown === '') {
             $this->attributes[
@@ -423,7 +423,7 @@ class Podcast extends Entity
     /**
      * Saves the location name and fetches OpenStreetMap info
      */
-    public function setLocation(?Location $location = null): static
+    public function setLocation(?Location $location = null)
     {
         if ($location === null) {
             $this->attributes['location_name'] = null;
@@ -484,7 +484,7 @@ class Podcast extends Entity
     /**
      * Saves custom rss tag into json
      */
-    public function setCustomRssString(string $customRssString): static
+    public function setCustomRssString(string $customRssString)
     {
         if ($customRssString === '') {
             return $this;

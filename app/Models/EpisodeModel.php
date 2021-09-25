@@ -20,7 +20,7 @@ class EpisodeModel extends Model
      *
      * @var array<string, array<string, string>>
      */
-    public static $themes = [
+    public $themes = [
         'light-transparent' => [
             'style' =>
                 'background-color: #fff; background-image: linear-gradient(45deg, #ccc 12.5%, transparent 12.5%, transparent 50%, #ccc 50%, #ccc 62.5%, transparent 62.5%, transparent 100%); background-size: 5.66px 5.66px;',
@@ -263,7 +263,7 @@ class EpisodeModel extends Model
      *
      * @return int|false seconds
      */
-    public function getSecondsToNextUnpublishedEpisode(int $podcastId): int | false
+    public function getSecondsToNextUnpublishedEpisode(int $podcastId)
     {
         $result = $this->select('TIMESTAMPDIFF(SECOND, NOW(), `published_at`) as timestamp_diff')
             ->where([

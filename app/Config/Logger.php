@@ -40,7 +40,7 @@ class Logger extends BaseConfig
      *
      * @var int|int[]
      */
-    public int | array $threshold = 4;
+    public $threshold = 4;
 
     /**
      * --------------------------------------------------------------------------
@@ -50,7 +50,7 @@ class Logger extends BaseConfig
      * Each item that is logged has an associated date. You can use PHP date
      * codes to set your own date formatting
      */
-    public string $dateFormat = 'Y-m-d H:i:s';
+    public $dateFormat = 'Y-m-d H:i:s';
 
     /**
      * --------------------------------------------------------------------------
@@ -77,7 +77,7 @@ class Logger extends BaseConfig
      *
      * @var array<string, mixed>
      */
-    public array $handlers = [
+    public $handlers = [
         /*
          * --------------------------------------------------------------------
          * File Handler

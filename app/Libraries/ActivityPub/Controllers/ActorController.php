@@ -28,16 +28,16 @@ class ActorController extends Controller
      */
     protected $helpers = ['activitypub'];
 
-    protected Actor $actor;
+    protected $actor;
 
-    protected ActivityPub $config;
+    protected $config;
 
     public function __construct()
     {
         $this->config = config('ActivityPub');
     }
 
-    public function _remap(string $method, string ...$params): mixed
+    public function _remap(string $method, string ...$params)
     {
         if (count($params) < 1) {
             throw PageNotFoundException::forPageNotFound();
@@ -326,7 +326,7 @@ class ActorController extends Controller
             ->setBody($followersCollection->toJSON());
     }
 
-    public function attemptFollow(): RedirectResponse | ResponseInterface
+    public function attemptFollow()
     {
         $rules = [
             'handle' =>

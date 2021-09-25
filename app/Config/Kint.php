@@ -28,13 +28,13 @@ class Kint extends BaseConfig
     /**
      * @var string[]
      */
-    public array $plugins = [];
+    public $plugins = [];
 
-    public int $maxDepth = 6;
+    public $maxDepth = 6;
 
-    public bool $displayCalledFrom = true;
+    public $displayCalledFrom = true;
 
-    public bool $expanded = false;
+    public $expanded = false;
 
     /*
     |--------------------------------------------------------------------------
@@ -42,21 +42,21 @@ class Kint extends BaseConfig
     |--------------------------------------------------------------------------
     */
 
-    public string $richTheme = 'aante-light.css';
+    public $richTheme = 'aante-light.css';
 
-    public bool $richFolder = false;
+    public $richFolder = false;
 
-    public int $richSort = Renderer::SORT_FULL;
-
-    /**
-     * @var string[]
-     */
-    public array $richObjectPlugins = [];
+    public $richSort = Renderer::SORT_FULL;
 
     /**
      * @var string[]
      */
-    public array $richTabPlugins = [];
+    public $richObjectPlugins = [];
+
+    /**
+     * @var string[]
+     */
+    public $richTabPlugins = [];
 
     /*
     |--------------------------------------------------------------------------
@@ -64,11 +64,11 @@ class Kint extends BaseConfig
     |--------------------------------------------------------------------------
     */
 
-    public bool $cliColors = true;
+    public $cliColors = true;
 
-    public bool $cliForceUTF8 = false;
+    public $cliForceUTF8 = false;
 
-    public bool $cliDetectWidth = true;
+    public $cliDetectWidth = true;
 
-    public int $cliMinWidth = 40;
+    public $cliMinWidth = 40;
 }

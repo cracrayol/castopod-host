@@ -81,7 +81,7 @@ class PlatformModel extends Model
         string $label,
         string $homeUrl,
         string $submitUrl = null
-    ): int | false {
+    ) {
         $data = [
             'slug' => $slug,
             'type' => $type,
@@ -148,7 +148,7 @@ class PlatformModel extends Model
         int $podcastId,
         string $platformType,
         array $podcastsPlatformsData
-    ): int | false {
+    ) {
         $this->clearCache($podcastId);
 
         $podcastsPlatformsTable = $this->db->prefixTable('podcasts_platforms');
@@ -171,7 +171,7 @@ class PlatformModel extends Model
     /**
      * @param mixed[] $podcastsPlatformsData
      */
-    public function createPodcastPlatforms(int $podcastId, array $podcastsPlatformsData): int | false
+    public function createPodcastPlatforms(int $podcastId, array $podcastsPlatformsData)
     {
         $this->clearCache($podcastId);
 
@@ -180,7 +180,7 @@ class PlatformModel extends Model
             ->insertBatch($podcastsPlatformsData);
     }
 
-    public function removePodcastPlatform(int $podcastId, string $platformSlug): bool | string
+    public function removePodcastPlatform(int $podcastId, string $platformSlug)
     {
         $this->clearCache($podcastId);
 

@@ -19,7 +19,7 @@ abstract class AbstractObject
     /**
      * @param mixed $value
      */
-    public function set(string $property, $value): static
+    public function set(string $property, $value)
     {
         $this->{$property} = $value;
 
@@ -50,7 +50,7 @@ abstract class AbstractObject
         });
     }
 
-    public function toJSON(): string | bool
+    public function toJSON()
     {
         return json_encode($this->toArray(), JSON_UNESCAPED_UNICODE);
     }

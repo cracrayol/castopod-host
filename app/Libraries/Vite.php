@@ -6,19 +6,19 @@ namespace App\Libraries;
 
 class Vite
 {
-    protected string $manifestPath = 'assets/manifest.json';
+    protected $manifestPath = 'assets/manifest.json';
 
-    protected string $manifestCSSPath = 'assets/manifest-css.json';
-
-    /**
-     * @var array<string, mixed>
-     */
-    protected ?array $manifestData = null;
+    protected $manifestCSSPath = 'assets/manifest-css.json';
 
     /**
      * @var array<string, mixed>
      */
-    protected ?array $manifestCSSData = null;
+    protected $manifestData = null;
+
+    /**
+     * @var array<string, mixed>
+     */
+    protected $manifestCSSData = null;
 
     public function asset(string $path, string $type): string
     {
@@ -103,16 +103,14 @@ class Vite
 
     private function getHtmlTag(string $assetUrl, string $type): string
     {
-        return match ($type) {
-            'css' => <<<CODE_SAMPLE
+        switch ($type) {
+            case 'css': return <<<CODE_SAMPLE
                 <link rel="stylesheet" href="{$assetUrl}"/>
-            CODE_SAMPLE
-,
-            'js' => <<<CODE_SAMPLE
+            CODE_SAMPLE;
+            case 'js': return <<<CODE_SAMPLE
                     <script type="module" src="{$assetUrl}"></script>
-                CODE_SAMPLE
-,
-            default => '',
-        };
+                CODE_SAMPLE;
+            default : return '';
+        }
     }
 }

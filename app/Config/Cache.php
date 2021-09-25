@@ -22,7 +22,7 @@ class Cache extends BaseConfig
      * The name of the preferred handler that should be used. If for some reason
      * it is not available, the $backupHandler will be used in its place.
      */
-    public string $handler = 'file';
+    public $handler = 'file';
 
     /**
      * --------------------------------------------------------------------------
@@ -33,7 +33,7 @@ class Cache extends BaseConfig
      * unreachable. Often, 'file' is used here since the filesystem is
      * always available, though that's not always practical for the app.
      */
-    public string $backupHandler = 'dummy';
+    public $backupHandler = 'dummy';
 
     /**
      * --------------------------------------------------------------------------
@@ -45,7 +45,7 @@ class Cache extends BaseConfig
      *
      * @deprecated Use the driver-specific variant under $file
      */
-    public string $storePath = WRITEPATH . 'cache/';
+    public $storePath = WRITEPATH . 'cache/';
 
     /**
      * --------------------------------------------------------------------------
@@ -64,7 +64,7 @@ class Cache extends BaseConfig
      *
      * @var boolean|string[]
      */
-    public bool | array $cacheQueryString = false;
+    public $cacheQueryString = false;
 
     /**
      * --------------------------------------------------------------------------
@@ -74,7 +74,7 @@ class Cache extends BaseConfig
      * This string is added to all cache item names to help avoid collisions
      * if you run multiple applications with the same cache engine.
      */
-    public string $prefix = '';
+    public $prefix = '';
 
     /**
      * --------------------------------------------------------------------------
@@ -87,7 +87,7 @@ class Cache extends BaseConfig
      * hard-coded, but may be useful to projects and modules. This will replace
      * the hard-coded value in a future release.
      */
-    public int $ttl = 60;
+    public $ttl = 60;
 
     /**
      * --------------------------------------------------------------------------
@@ -98,7 +98,7 @@ class Cache extends BaseConfig
      *
      * @var array<string, string|int|null>
      */
-    public array $file = [
+    public $file = [
         'storePath' => WRITEPATH . 'cache/',
         'mode' => 0640,
     ];
@@ -114,7 +114,7 @@ class Cache extends BaseConfig
      *
      * @var array<string, string|int|boolean>
      */
-    public array $memcached = [
+    public $memcached = [
         'host' => '127.0.0.1',
         'port' => 11211,
         'weight' => 1,
@@ -130,7 +130,7 @@ class Cache extends BaseConfig
      *
      * @var array<string, string|int|null>
      */
-    public array $redis = [
+    public $redis = [
         'host' => '127.0.0.1',
         'password' => null,
         'port' => 6379,
@@ -148,7 +148,7 @@ class Cache extends BaseConfig
      *
      * @var array<string, string>
      */
-    public array $validHandlers = [
+    public $validHandlers = [
         'dummy' => DummyHandler::class,
         'file' => FileHandler::class,
         'memcached' => MemcachedHandler::class,

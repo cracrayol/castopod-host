@@ -22,7 +22,7 @@ class WebFingerController extends Controller
     {
         try {
             $webfinger = new WebFinger($this->request->getGet('resource'));
-        } catch (Exception) {
+        } catch (Exception $e) {
             // return 404, actor not found
             throw PageNotFoundException::forPageNotFound();
         }

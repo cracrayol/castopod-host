@@ -39,7 +39,7 @@ class HttpSignature
         signature="(?P<signature>[\w+\/]+={0,2})"
     /x';
 
-    protected ?IncomingRequest $request = null;
+    protected $request = null;
 
     public function __construct(IncomingRequest $request = null)
     {
@@ -122,7 +122,7 @@ class HttpSignature
      *
      * @return array<string, string>|false
      */
-    private function splitSignature(string $signature): array | false
+    private function splitSignature(string $signature)
     {
         if (! preg_match(self::SIGNATURE_PATTERN, $signature, $matches)) {
             // Signature pattern failed

@@ -8,114 +8,114 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
-    public string $fromEmail;
+    public $fromEmail;
 
-    public string $fromName;
+    public $fromName;
 
-    public string $recipients;
+    public $recipients;
 
     /**
      * The "user agent"
      */
-    public string $userAgent = 'CodeIgniter';
+    public $userAgent = 'CodeIgniter';
 
     /**
      * The mail sending protocol: mail, sendmail, smtp
      */
-    public string $protocol = 'mail';
+    public $protocol = 'mail';
 
     /**
      * The server path to Sendmail.
      */
-    public string $mailPath = '/usr/sbin/sendmail';
+    public $mailPath = '/usr/sbin/sendmail';
 
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost;
+    public $SMTPHost;
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser;
+    public $SMTPUser;
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass;
+    public $SMTPPass;
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 25;
+    public $SMTPPort = 25;
 
     /**
      * SMTP Timeout (in seconds)
      */
-    public int $SMTPTimeout = 5;
+    public $SMTPTimeout = 5;
 
     /**
      * Enable persistent SMTP connections
      */
-    public bool $SMTPKeepAlive = false;
+    public $SMTPKeepAlive = false;
 
     /**
      * SMTP Encryption. Either tls or ssl
      */
-    public string $SMTPCrypto = 'tls';
+    public $SMTPCrypto = 'tls';
 
     /**
      * Enable word-wrap
      */
-    public bool $wordWrap = true;
+    public $wordWrap = true;
 
     /**
      * Character count to wrap at
      */
-    public int $wrapChars = 76;
+    public $wrapChars = 76;
 
     /**
      * Type of mail, either 'text' or 'html'
      */
-    public string $mailType = 'text';
+    public $mailType = 'text';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)
      */
-    public string $charset = 'UTF-8';
+    public $charset = 'UTF-8';
 
     /**
      * Whether to validate the email address
      */
-    public bool $validate = false;
+    public $validate = false;
 
     /**
      * Email Priority. 1 = highest. 5 = lowest. 3 = normal
      */
-    public int $priority = 3;
+    public $priority = 3;
 
     /**
      * Newline character. (Use “\r\n” to comply with RFC 822)
      */
-    public string $CRLF = "\r\n";
+    public $CRLF = "\r\n";
 
     /**
      * Newline character. (Use “\r\n” to comply with RFC 822)
      */
-    public string $newline = "\r\n";
+    public $newline = "\r\n";
 
     /**
      * Enable BCC Batch Mode.
      */
-    public bool $BCCBatchMode = false;
+    public $BCCBatchMode = false;
 
     /**
      * Number of emails in each BCC batch
      */
-    public int $BCCBatchSize = 200;
+    public $BCCBatchSize = 200;
 
     /**
      * Enable notify message from server
      */
-    public bool $DSN = false;
+    public $DSN = false;
 }
