@@ -229,7 +229,7 @@ if (! function_exists('get_rss_feed')) {
                 }
             }
             $item->addChildWithCDATA('description', $episode->getDescriptionHtml($serviceSlug));
-            $item->addChild('duration', $episode->audio_file_duration, $itunesNamespace);
+            $item->addChild('duration', (string) $episode->audio_file_duration, $itunesNamespace);
             $item->addChild('link', $episode->link);
             $episodeItunesImage = $item->addChild('image', null, $itunesNamespace);
             $episodeItunesImage->addAttribute('href', $episode->image->feed_url);
@@ -244,9 +244,9 @@ if (! function_exists('get_rss_feed')) {
                 );
 
             $episode->number &&
-                $item->addChild('episode', $episode->number, $itunesNamespace);
+                $item->addChild('episode', (string) $episode->number, $itunesNamespace);
             $episode->season_number &&
-                $item->addChild('season', $episode->season_number, $itunesNamespace);
+                $item->addChild('season', (string) $episode->season_number, $itunesNamespace);
             $item->addChild('episodeType', $episode->type, $itunesNamespace);
 
             // add link to episode comments as podcast-activity format
@@ -259,7 +259,9 @@ if (! function_exists('get_rss_feed')) {
                 $transcriptElement->addAttribute('url', $episode->transcript_file_url);
                 $transcriptElement->addAttribute(
                     'type',
-                    Mimes::guessTypeFromExtension(pathinfo($episode->transcript_file_url, PATHINFO_EXTENSION)),
+                    Mimes::guessTypeFromExtension(
+                        pathinfo($episode->transcript_file_url, PATHINFO_EXTENSION)
+                    ) ?? 'text/html',
                 );
                 $transcriptElement->addAttribute('language', $podcast->language_code);
             }
@@ -272,8 +274,8 @@ if (! function_exists('get_rss_feed')) {
 
             foreach ($episode->soundbites as $soundbite) {
                 $soundbiteElement = $item->addChild('soundbite', $soundbite->label, $podcastNamespace);
-                $soundbiteElement->addAttribute('start_time', $soundbite->start_time);
-                $soundbiteElement->addAttribute('duration', $soundbite->duration);
+                $soundbiteElement->addAttribute('start_time', (string) $soundbite->start_time);
+                $soundbiteElement->addAttribute('duration', (string) $soundbite->duration);
             }
 
             foreach ($episode->persons as $person) {

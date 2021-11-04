@@ -1,3 +1,28 @@
+# [1.0.0-alpha.76](https://code.podlibre.org/podlibre/castopod-host/compare/v1.0.0-alpha.75...v1.0.0-alpha.76) (2021-10-26)
+
+### Bug Fixes
+
+- replace hardcoded style links with vite service + set default value for remote
+  transcript url
+  ([3f2e056](https://code.podlibre.org/podlibre/castopod-host/commit/3f2e05608e43d47bbb518a9acfaf56ec3eefafb4)),
+  closes [#149](https://code.podlibre.org/podlibre/castopod-host/issues/149)
+  [#150](https://code.podlibre.org/podlibre/castopod-host/issues/150)
+
+# [1.0.0-alpha.75](https://code.podlibre.org/podlibre/castopod-host/compare/v1.0.0-alpha.74...v1.0.0-alpha.75) (2021-10-05)
+
+### Bug Fixes
+
+- **rss:** cast number type values to string in rss_helper
+  ([7180ae9](https://code.podlibre.org/podlibre/castopod-host/commit/7180ae9ec700930b69c04ed91f8eceea16ad77ce)),
+  closes [#148](https://code.podlibre.org/podlibre/castopod-host/issues/148)
+
+# [1.0.0-alpha.74](https://code.podlibre.org/podlibre/castopod-host/compare/v1.0.0-alpha.73...v1.0.0-alpha.74) (2021-09-28)
+
+### Features
+
+- **platforms:** add missing newpodcastapps.com's platforms
+  ([92dd370](https://code.podlibre.org/podlibre/castopod-host/commit/92dd370e2f9a464edd26cddcde96d0e16f91548d))
+
 # [1.0.0-alpha.73](https://code.podlibre.org/podlibre/castopod-host/compare/v1.0.0-alpha.72...v1.0.0-alpha.73) (2021-09-22)
 
 ### Bug Fixes
